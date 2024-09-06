@@ -1,12 +1,12 @@
 <launch>
-  <arg name="cam_name" />
+  <arg name="cam_name" default="accio_cam"/>
   <arg name="calib_file" default="$(find svo_ros)/param/calib/$(arg cam_name).yaml"/>
 
   <!-- SVO node -->
   <node pkg="svo_ros" type="svo_node" name="svo" clear_params="true" output="screen" >
 
     <!-- Camera topic to subscribe to -->
-    <param name="cam0_topic" value="camera/image_raw" type="str" />
+    <param name="cam0_topic" value="/camera/camera/color/image_raw" type="str" />
 
     <!-- Camera calibration file -->
     <param name="calib_file" value="$(arg calib_file)" />
